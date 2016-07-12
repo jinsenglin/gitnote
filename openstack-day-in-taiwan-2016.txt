@@ -1,1 +1,46 @@
+[ planning an enterprise os deployment ]
+- manage hetegerestry h/w on demand
 
+[ ostug ]
+
+[ kolla ]
+- rely on ansible 1.x
+- immutable infra philosiphy
+- deploy on docker
+- entrypoint is specified by ansible instead of dockerfile
+- deploy/upgrade os quickly
+- support kibana to display log
+- ansible to generate os config and run container
+- command: tox -e genconfig
+:: sudo cp -rf etc/kolla /etc
+:: tools/build.py ... ... ... --push
+:: /etc/kolla/global.yml (manually update)
+:: modify docker config
+:: sudo mount -make-shared /run
+:: sudo tool/kolla-ansible prechecks
+:: sudo tool/kolla-ansible deploy
+:: sudo tool/kolla-ansible reconfig
+- known issue: single node without haproxy
+
+[ building an os cloud for enterprise use case ]
+- automation for configuration as soon as possbile even in PoC phase 
+- openstack bifront ironic
+- PoC, Pilot, Production 3 phases
+
+[ kubernetes ]
+- use case : Rayark
+- architecture is similar to Borg 
+
+[ os migration-as-a-service ci-as-a-service tools]
+GUTS : migration tool
+- not live migration
+- open source and of objective to be part of os big tent projects
+- aws to openstack : rc
+- vmware to openstack : dev
+- hyper-v to openstack : dev
+- openstack to openstack : ga
+
+StackBuffet : ci tool
+- local patches management
+- not open source
+- will be released as a public cloud service
